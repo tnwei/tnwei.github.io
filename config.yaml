@@ -1,0 +1,37 @@
+baseURL: 'https://tnwei.github.io/'
+languageCode: 'en-us'
+title: 'Tan Nian Wei'
+theme: 'PaperMod'
+
+# Fill out when there's more stuff
+menu:
+  main:
+    - identifier: Writing
+      name: Writing
+      url: /writing/ # using the archives feature for this allows showing timeline
+#   - identifier: about
+#     name: About
+#     url: /about/
+
+
+params:
+  env: 'production'
+  # ShowBreadCrumbs: true # e.g. Home -> Writing
+  # ShowToc: true
+  # author: 'Tan Nian Wei' # kinda self-evident
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: false
+  DateFormat: 'Jan 2, 2006 Mon'
+  disableSpecial1stPost: true
+  comments: true
+
+  homeInfoParams:
+    Title: Hi there wave (TODO this1)
+    Content: Can be Info, links, about... (TODO this2)
+
+  socialIcons: # optional
+    - name: github
+      url: "https://github.com/tnwei"
+  
+

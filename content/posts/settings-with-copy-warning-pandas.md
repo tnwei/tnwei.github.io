@@ -1,7 +1,7 @@
 ---
 title: "SettingsWithCopyWarning in pandas"
 date: 2021-12-30T00:40:54+08:00
-draft: true
+draft: false
 summary: "What it is, why it crops up, and how to get rid of it"
 tags: ["python", "pandas"]
 ---

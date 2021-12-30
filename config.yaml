@@ -18,20 +18,40 @@ params:
   env: 'production'
   # ShowBreadCrumbs: true # e.g. Home -> Writing
   # ShowToc: true
-  # author: 'Tan Nian Wei' # kinda self-evident
+  # author: 'Tan Nian Wei' # kinda self-evident isn't it?
   ShowReadingTime: true
   ShowCodeCopyButtons: true
   ShowPostNavLinks: false
+  ShowShareButtons: true
   DateFormat: 'Jan 2, 2006 Mon'
   disableSpecial1stPost: true
-  comments: true
+  # comments: true
+
+  assets:
+    disableHLJS: true # use chroma instead
 
   homeInfoParams:
-    Title: Hi there wave (TODO this1)
-    Content: Can be Info, links, about... (TODO this2)
+    Title: Hi, I'm Nian Wei
+    Content: |
+      ~ I think machine learning is cool
+      
+      ~ Currently building applied machine learning applications with PETRONAS Research
 
-  socialIcons: # optional
+    # TODO: Add third line eventually. Markdown accepted  
+
+
+  socialIcons:
     - name: github
       url: "https://github.com/tnwei"
+    - name: stackoverflow
+      url: "https://stackoverflow.com/users/13095028/tnwei"
   
+markup:
+  highlight:
+    # anchorLineNos: true   # underline line nos, looks nice actually
+    codeFences: true
+    guessSyntax: true
+    # lineNos: true         # not useful most of the time, leave off
+    # noClasses: false      # this checks language, leave true
+    style: monokai
 

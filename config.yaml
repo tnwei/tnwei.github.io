@@ -25,7 +25,8 @@ params:
   ShowShareButtons: true
   DateFormat: 'Jan 2, 2006 Mon'
   disableSpecial1stPost: true
-  # comments: true
+  
+  comments: true # edit in layouts/partial/comments.html
 
   assets:
     disableHLJS: true # use chroma instead

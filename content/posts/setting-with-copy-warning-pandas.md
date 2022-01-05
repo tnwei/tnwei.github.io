@@ -1,5 +1,5 @@
 ---
-title: "SettingsWithCopyWarning in pandas"
+title: "SettingWithCopyWarning in pandas"
 date: 2021-12-30T00:40:54+08:00
 draft: false
 summary: "What it is, why it crops up, and how to get rid of it"

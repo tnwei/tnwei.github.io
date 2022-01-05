@@ -8,7 +8,7 @@ tags: ["python", "pandas"]
 
 (tl;dr: jump straight to [Getting rid of SettingWithCopyWarnings]({{< relref "#getting-rid-of-settingwithcopywarnings" >}} "Getting rid of SettingWithCopyWarnings") if you’re here for answers)
 
-If you are a pandas user, chances are you’ve seen the SettingsWithCopyWarnings crop up when you’re assigning values to a `pd.DataFrame` or `pd.Series`.
+If you are a pandas user, chances are you’ve seen the SettingWithCopyWarning crop up when you’re assigning values to a `pd.DataFrame` or `pd.Series`.
 
 ```python
 In [1]: import pandas as pd
@@ -161,7 +161,7 @@ Let’s break this down:
 
 - Both `df.loc[3:5]` and `df.iloc[3:5]` returned views and have references to the original dataframe.
 - For `df.loc[3:5, ["A", "B"]]` and `df.iloc[3:5, [0, 1]]` , when the columns are additionally specified on top of the rows, copies of `df` are returned instead. Using `.loc` indexing has no references to the OG dataframe, while using `iloc` indexing results in a reference to a temporary dataframe that has been garbage collected, which is as good as `None` itself. We’ll see if this carries any significance.
-- Referring to a column directly using either `df["A"]` or `df.loc[:, "A"]` returns a view, with no reference to the original dataframe. It might have to do with the fact that each dataframe column is actually stored as a pd Series.
+- Referring to a column directly using either `df["A"]` or `df.loc[:, "A"]` returns a view, with no reference to the original dataframe. It might have to do with the fact that each dataframe column is actually stored as a `pd Series`.
 
 What happens if we manually create copies of these indexed dataframes / series?
 
@@ -442,7 +442,7 @@ In [34]: dfe[1] = 99999 # No warnings raised
     ...: dfe.loc[2:4] = 88888
 ```
 
-`dfe` remained a view of `df["A"]`all changes effected on `dfe` is reflected in `df["A"]` , which is still part of `df`. It appears that there’s not much to worry about for chained assignment on individual series. 
+`dfe` remained a view of `df["A"]`. All changes effected on `dfe` is reflected in `df["A"]` , which is still part of `df`. It appears that there’s not much to worry about for chained assignment on individual series. 
 
 ```python
 In [35]: print(dfe)
@@ -543,7 +543,7 @@ In [40]: df = pd.DataFrame({
 pandas docs recommend this method for two reasons: 
 
 - using `.loc` is guaranteed to refer to the underlying dataframe it is called on. `.iloc` does not have this property.
-- `.loc` indexing replaces what could be chain indexing into a single indexing step. If you refer to the TODO Example above, loc indexing results in a single setitem call
+- `.loc` indexing replaces what could be chain indexing into a single indexing step. If you refer to the example above under [Chained assignment with views and copies]({{< relref "#chained-assignment-with-views-and-copies" >}} "Chained assignment with views and copies"), `.loc` indexing resolves chained indexing into a single `__setitem__` call.
 
 If you are selecting data using conditionals, you can consider returning a mask instead of a copy of the original dataframe. A mask is a boolean series or dataframe which can conveniently be used in `.loc` indexing, as the example below:
 
@@ -604,7 +604,7 @@ A    B   C    D
 4    5  100  15  150
 ```
 
-Break down chained assignment steps into single assignments [^5]. 
+Break down chained assignment steps into single assignments [^5]: 
 
 ```python
 # Examples borrowed from [4]
@@ -644,7 +644,7 @@ dfa = df.loc[3:5]
 dfa = dfa.where(dfa % 2 != 0, 100) # df is not affected
 ```
 
-Replace creating a new column on the indexed dataframe with `assign`
+Replace creating a new column on the indexed dataframe with `assign`:
 
 ```python
 # (ii) 
@@ -656,7 +656,7 @@ df = make_clean_df()
 dfa = dfa.assign(D=dfa["B"]*10) # df is not affected
 ```
 
-Creating a copy of the dataframe, before assigning values using `.loc` indexing.
+Creating a copy of the dataframe, before assigning values using `.loc` indexing:
 
 ```python
 # (iii)

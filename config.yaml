@@ -9,6 +9,11 @@ menu:
     - identifier: Writing
       name: Writing
       url: /writing/ # using the archives feature for this allows showing timeline
+      weight: 10 # Higher weight is on the right
+    - identifier: Resume
+      name: Resume
+      url: https://drive.google.com/file/d/1y6VzyE8ocY0O2Qw_LGmoGPUBKzqBd0ls/view
+      weight: 50
 #   - identifier: about
 #     name: About
 #     url: /about/

@@ -30,7 +30,13 @@ params:
   ShowShareButtons: true
   DateFormat: 'Jan 2, 2006 Mon'
   disableSpecial1stPost: true
+ 
+  defaultTheme: light
   
+  # comments JS can't change dynamically with theme
+  # disable until I figure out how
+  disableThemeToggle: true  
+
   comments: true # edit in layouts/partial/comments.html
 
   assets:

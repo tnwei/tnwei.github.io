@@ -1,0 +1,5 @@
+/* Original is 720px, looks good for landing page */
+/* But leaves little space for posts */
+:root {
+    --main-width: 900px
+}

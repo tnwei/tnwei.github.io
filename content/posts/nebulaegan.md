@@ -1,7 +1,7 @@
 ---
 title: "Generating nebulae images with GANs"
 date: 2022-02-26T19:16:00+08:00
-draft: true
+draft: falsee
 summary: "End-to-end from data scraping, to model training, to deployment as web app"
 tags: ["python", "GAN", "deep-learning"]
 math: false
@@ -9,7 +9,7 @@ math: false
 
 I recently rigged up [These Nebulae Do Not Exist](https://tnwei.github.io/thesenebulaedonotexist). The website shows GAN-generated images of nebulae every time the page is refreshed:
 
-{{< figure src="/nebulaegan/site-screenshot.jpeg" alt="Site screenshot" caption="Screenshot of These Nebulae Do Not Exist">}}
+{{< figure src="/static/thesenebulaedonotexist/site-screenshot.jpeg" alt="Site screenshot" caption="Screenshot of These Nebulae Do Not Exist">}}
 
 In this post, I cover how I assembled it end-to-end, from data scraping, to model training, and finally deploying it as a web app using free services only. 
 
@@ -21,8 +21,8 @@ Nebulae are my favourite astronomical phenomena. Distant clouds of stardust arra
 
 Screening for existing work, I found:
 
-+ [`pearsonkyle/Neural-Nebula`](https://github.com/pearsonkyle/Neural-Nebula) which uses DCGAN to generate 128x128 nebula pictures. Last updated Apr 2019.
-+ [`jacobbieker/AstroGAN`](https://github.com/jacobbieker/AstroGAN) which contains code for a spiral galaxy generator, elliptical galaxy generator, and a 128x128 image generator trained on Hubble space telescope images. Last updated May 2019.
++ [`pearsonkyle/Neural-Nebula`](https://github.com/pearsonkyle/Neural-Nebula) which uses DCGAN to generate 128x128 nebula pictures. 
++ [`jacobbieker/AstroGAN`](https://github.com/jacobbieker/AstroGAN) which contains code for a spiral galaxy generator, elliptical galaxy generator, and a 128x128 image generator trained on Hubble space telescope images.
 
 Both repos were last updated in Apr and May 2019 respectively, back before high resolution image synthesis with GANs became commonplace.
 
@@ -40,26 +40,26 @@ I ended up manually inspecting images in the dataset one by one and preprocessed
 + Composite images that have image-stitching artifacts were cropped to remove blank regions in the image (see example below). If left unattended, generators eventually learnt to produce images with similar stitching artifacts to fool discriminators.
 
 
-{{< figure src="/nebulaegan/opo0417g-shrinked.jpeg" alt="Example photo with image stitching artifacts" caption="Example image with stitching artifacts. _Full HST WFPC2 image of Trifid Nebula_. Source: ESA/Hubble" >}}
+{{< figure src="/static/thesenebulaedonotexist/opo0417g-shrinked-shrinked.jpeg" alt="Example photo with image stitching artifacts" caption="Example image with stitching artifacts. _Full HST WFPC2 image of Trifid Nebula_. Source: ESA/Hubble" >}}
 
 By the time I was done, I had a vetted dataset of ~2k images. At this point, the images have a diverse range of resolutions and aspect ratios thanks to the preprocessing. However, most GANs only work with generating square images. Conventionally, one would simply resize the images to the target resolution, but I opted instead to sample random crops at 512x512 resolution to prevent introducing distortions.
 
 ## Training
 
-I adopted a lightweight GAN architecture from [Towards Faster and Stabilized GAN Training for High-fidelity Few-shot Image Synthesis](https://openreview.net/forum?id=1Fqg133qRaI) by Liu et al, implemented in [lucidrains/lightweight-gan](https://github.com/lucidrains/lightweight-gan) by the same person who made [thispersondoesnotexist.com](https://thispersondoesnotexist.com). Paraphrasing the paper's summary, this lightweight GAN's main value proposition is its low computational and data sample requirements, enabling high resolution GAN models to be trained on consumer GPUs within  hours, using a small amount of images. This is great; I plan to rely on my personal workstation for training.
+I adopted a lightweight GAN architecture from [Towards Faster and Stabilized GAN Training for High-fidelity Few-shot Image Synthesis](https://openreview.net/forum?id=1Fqg133qRaI) by Liu et al, implemented in [lucidrains/lightweight-gan](https://github.com/lucidrains/lightweight-gan) by the same person who made [thispersondoesnotexist.com](https://thispersondoesnotexist.com). Paraphrasing the paper's summary, this lightweight GAN's main value proposition is its low computational and data sample requirements, enabling high resolution GAN models to be trained on consumer GPUs within  hours, using a small amount of images. This is great as I plan to rely on my personal workstation for training.
 
 I experimented with the training configuration for a couple of weeks. Overall I was pleased with the results; the images generated were sufficiently realistic and exhibited a diverse range of modalities. Examples below:
 
-{{< figure src="/nebulaegan/example.jpeg" alt="Example GAN output 1" caption="Example GAN output 1" >}}
-{{< figure src="/nebulaegan/example2.jpeg" alt="Example GAN output 2" caption="Example GAN output 2" >}}
+{{< figure src="/static/thesenebulaedonotexist/example.jpeg" alt="Example GAN output 1" caption="Example GAN output 1" >}}
+{{< figure src="/static/thesenebulaedonotexist/example2.jpeg" alt="Example GAN output 2" caption="Example GAN output 2" >}}
 
 However, every now and then, the generated images exhibit texture artifacts that proved to be difficult to remove despite further experimentation. 
 
-{{< figure src="/nebulaegan/example-texture-artifacts.png" alt="Image of GAN texture artifacts" caption="Examples of GAN texture artifacts. You might need to open the image in a new tab and zoom in to see it" >}}
+{{< figure src="/static/thesenebulaedonotexist/example-texture-artifacts.png" alt="Image of GAN texture artifacts" caption="Examples of GAN texture artifacts. You might need to open the image in a new tab and zoom in to see it" >}}
 
 I eventually concluded that the lightweight GAN architecture has reached its limits, and I've reaped all the benefits for something that trains this fast. Using [GaParmar/clean-fid](https://github.com/GaParmar/clean-fid), the final model has an FID score [^6] of 52.86. For context, Liu et al's model scored 52.47 FID when trained on 2k images of nature photographs, which places us in a similar ballpark for performance (see table reproduced below). 
 
-{{< figure src="/nebulaegan/fid-excerpt.png" alt="Table reproduced from paper" caption="FID scores of Liu et al's architecture with varying amounts of data, reproduced from their paper. Highlight emphasis mine." >}}
+{{< figure src="/static/thesenebulaedonotexist/fid-excerpt.png" alt="Table reproduced from paper" caption="FID scores of Liu et al's architecture with varying amounts of data, reproduced from their paper. Highlight emphasis mine." >}}
 
 ## (Not) experimenting with StyleGAN (yet)
 
@@ -79,7 +79,7 @@ ONNX export relies on first JIT-serializing the model to [Torchscript](https://p
 
 Model export went smoothly using [`torch.onnx.export`](https://pytorch.org/docs/stable/onnx.html). I wasn't able to first convert the model to Torchscript using scripting, so I exported to ONNX using tracing instead. Upon comparison with images generated by the original model, the ONNX-exported model generated images are slightly different from the original model. In other words, the exported model was slightly different from the original model. There were dynamic control flow statements that wasn't adequately represented using tracing. I wouldn't mind if the different images looked better, but I prefer the output of the original model.
 
-{{< figure src="/nebulaegan/onnx-vs-torch-2.jpeg" alt="Image comparing output of the ONNX-exported model and the original model in Pytorch " caption="Comparison of images generated by ONNX-exported model (top) vs original Pytorch model (bottom)" >}}
+{{< figure src="/static/thesenebulaedonotexist/onnx-vs-torch-2.jpeg" alt="Image comparing output of the ONNX-exported model and the original model in Pytorch " caption="Comparison of images generated by ONNX-exported model (top) vs original Pytorch model (bottom)" >}}
 
 I modified the source code to remove blockers for scripting. They were small logical changes like replacing list unpacking with explicit indexing, and replacing lambda functions. I stopped when Pytorch complained about the use of `einops.rearrange`, which accepts an arbitrary amount of function arguments:
 
@@ -110,9 +110,9 @@ It eventually occured to me that the fastest way to generate an image is to load
 
 Major cloud providers are not keen on giving you an always-free-tier VM. For context, AWS only makes the `t2-micro` and `t3-micro` instances available for this purpose, they come with either 1 or 2 vCPUs and a measly 1GB RAM, and will be performance-throttled if you're using them too much. By contrast, they are much more generous with their serverless services. Google Cloud Run and Azure Container Apps allow running containerized applications within an always-free-tier usage quota [^4]. Given that my web app doesn't need to be stateful, a serverless architecture is fair game. Between GCP and Azure, I chose to go with Cloud Run since I've seen more mentions of it on the internet compared to Container Apps. 
 
-The completed application architecture looks like this:
+The complete application architecture diagram is as follows:
 
-TODO: Insert arch diagram
+{{< figure src="/static/thesenebulaedonotexist/nebulaegan-arch.jpeg" alt="Image of These Nebulae Do Not Exist's application architecture diagram" >}}
 
 The existing FastAPI web app is split into a light frontend that only serves the HTML page, and a relatively heavy backend that only generates images. When called, the frontend serves the landing page using the oldest image from the bucket. Once served, a Cloud Function calls the backend to generate a new image to replace the image that was just displayed. If multiple calls to the frontend are made in quick succession, Cloud Run will start up additional backend instances to cater for the increase in load. 
 

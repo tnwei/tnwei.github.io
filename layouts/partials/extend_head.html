@@ -10,22 +10,7 @@
 
 <!-- Math rendering using KaTeX -->
 {{ if or .Params.math .Site.Params.math }}
-
-<!-- From https://katex.org/docs/autorender.html -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" 
-integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
-    integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" 
-    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" 
-onload="renderMathInElement(document.body);"></script>
-
-<!-- MathJax -->
-<!-- KaTeX is a lot faster -->
-<!-- <script type="text/javascript" -->
-<!--   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> -->
-<!-- </script> -->
-
+{{ partial "math.html" . }}
 {{ end }}
 
 <!-- Set figcaptions to be centered -->

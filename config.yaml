@@ -27,7 +27,7 @@ params:
   ShowReadingTime: true
   ShowCodeCopyButtons: true
   ShowPostNavLinks: false
-  ShowShareButtons: true
+  ShowShareButtons: false
   DateFormat: 'Jan 2, 2006 Mon'
   disableSpecial1stPost: true
  

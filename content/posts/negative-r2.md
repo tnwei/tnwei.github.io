@@ -117,4 +117,4 @@ To summarize, we should expect $R^2$ to be bounded between zero and one only if 
 
 
 
-[^1]: Being specific with my choice of words here.
+[^1]: Being specific with my choice of words here :)

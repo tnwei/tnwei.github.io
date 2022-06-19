@@ -12,11 +12,12 @@ menu:
       weight: 10 # Higher weight is on the right
     - identifier: Resume
       name: Resume
-      url: https://drive.google.com/file/d/1y6VzyE8ocY0O2Qw_LGmoGPUBKzqBd0ls/view
+      url: https://drive.google.com/file/d/1Ebow1aw2Ji7zi_S6EC-PFcaOZEcVq4Tl/view?usp=sharing
       weight: 50
-#   - identifier: about
-#     name: About
-#     url: /about/
+    - identifier: About
+      name: About
+      url: /about/
+      weight: 60
 
 
 params:
@@ -47,14 +48,16 @@ params:
     Content: |
       ~ I think machine learning is cool
       
-      ~ Currently building applied machine learning applications with PETRONAS Research
+      ~ Building applied machine learning / computer vision applications with PETRONAS Research
 
-    # TODO: Add third line eventually. Markdown accepted  
+      ~ Based in Kuala Lumpur, Malaysia
 
 
   socialIcons:
     - name: github
       url: "https://github.com/tnwei"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/nianweitan"
     - name: stackoverflow
       url: "https://stackoverflow.com/users/13095028/tnwei"
   

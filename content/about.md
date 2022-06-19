@@ -12,4 +12,4 @@ I code in my spare time, either for amusement ([tnwei/vqgan-clip-app](https://gi
 
 I hike regularly on weekends. There's a lot of good places to go in the KL / Klang valley area.
 
-I think the most important language to in machine learning for the next decade is English. Because that's what the docs will be written in. 
+I think the most important language to in machine learning for the next decade is English. Because that's what the docs will be written in! 

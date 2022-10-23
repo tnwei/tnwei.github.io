@@ -12,7 +12,7 @@ menu:
       weight: 10 # Higher weight is on the right
     - identifier: Resume
       name: Resume
-      url: https://drive.google.com/file/d/1Ebow1aw2Ji7zi_S6EC-PFcaOZEcVq4Tl/view?usp=sharing
+      url: https://drive.google.com/file/d/1kWKGkamiCd7RZLssEBy3b-FT3r0jpwha/view?usp=sharing
       weight: 50
     - identifier: About
       name: About

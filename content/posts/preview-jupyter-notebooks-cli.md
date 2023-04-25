@@ -1,5 +1,5 @@
 ---
-title: "Reading Jupyter notebooks from the command line"
+title: "Read Jupyter notebooks from the command line"
 date: 2023-04-25T18:10:00+08:00
 summary: "For when just previews are enough"
 tags: ["python", "data-science", "terminal"]

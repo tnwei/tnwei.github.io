@@ -67,5 +67,7 @@ I ended up using the outcome of this little side project almost every day. It ju
 
 Certainly, there are limitations: none of the rich media content like images and interactive widgets are visible (see footnote [^2]). However, as a preview tool, it works more than well enough for my purposes and successfully scratched my itch. So I'm happy with it.
 
+Github repo link: ([tnwei/nbread](https://github.com/tnwei/nbread))
+
 [^1]: \*GPT it? Hmmm
 [^2]: What about the rich media formatting, you ask? One, typically I'm looking for textual content instead of rich content when skimming through notebooks: code or notes written in comments / markdown cells. And two, dealing with rich content will make this little side project more complex by a few orders of magnitude. I personally don't think putting a lot of effort here is worth it.

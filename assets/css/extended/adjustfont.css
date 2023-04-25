@@ -1,0 +1,31 @@
+.post-title {
+    /* font-size: 40px; */
+    font-size: 36px;
+}
+
+.post-content h1 {
+    /* font-size: 40px; */
+    font-size: 36px;
+}
+
+.post-content h2 {
+    /* font-size: 32px; */
+    font-size: 28px;
+}
+
+.post-content h3 {
+    /* font-size: 24px; */
+    font-size: 22px;
+}
+
+.post-content h4 {
+    font-size: 16px;
+}
+
+.post-content h5 {
+    font-size: 14px;
+}
+
+.post-content h6 {
+    font-size: 12px;
+}

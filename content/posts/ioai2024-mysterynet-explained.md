@@ -108,5 +108,5 @@ Here is a jumbo collage of what you should see if you formatted your input corre
 # Acknowledgements
 
 - The idea to do this arose from speaking to Chris (Romania) over making interesting olympiad questions.
-- Thanks to Fredrik's (Sweden) interest in flags, I had someone to share my progress with as I was making this, which is grealy appreciated. 
-- Thanks to my students for being my beta-testers.
+- Thanks to Fredrik's (Sweden) interest in flags, I had someone to share my progress with as I was making this, which is greatly appreciated! 
+- Thanks to my students for being my beta-testers ;)

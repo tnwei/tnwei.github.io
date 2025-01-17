@@ -14,6 +14,10 @@ My personal site built using `hugo` and the [PaperMod](https://github.com/aditya
 + Inline equations: wrap in `\\(` and `\\)`, or between `$`
 + Separators are defined in `layouts/partial/math.html`
 
+## Updating
+
+When recloning this repo, remember to `git submodule update --init --recursive` in `themes/PaperMod`. Update the theme by checking out the intended commit in the theme folder, and tracking it in git.
+
 References:
 
 + PaperMod docs itself

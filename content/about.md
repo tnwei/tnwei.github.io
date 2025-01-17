@@ -4,7 +4,7 @@ ShowReadingTime: false
 comments: false
 ---
 
-{{< figure src="/images/photo6158980487285158371.jpeg" alt="Profile pic" align=center >}}
+{{< figure src="/images/free-hugs-2023.jpeg" alt="Profile pic" align=center >}}
 
 In a previous life, I worked on cross-functional projects in energy as an applied ML scientist w/ PETRONAS Research. Currently I build domain-specific generative AI applications as a technical co-founder at V-Cred. 
 

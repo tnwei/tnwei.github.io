@@ -19,7 +19,7 @@ I believe in my social responsibilty to raise and train the next generation of i
 + https://nohello.net/en/
 + Believe that your best days are yet to come
 + Frequent communication + collaboration beats whatever framework we adopt
-+ Don't choose to not reach out for intervention just because you don't want to disturb me! We go far by being a team. Don't escalate things to my attention until it's too late
++ When you get stuck, I would like you to make effort to try things out and explore on your own before asking questions. That being said, after you have given it a good try, I would also like you to reach out for intervention early! Fret not for disturbing me, we go far by being a team
 + Attitude and drive are more important than skills
 + My top 5 HIGH5 strengths (you rely on me): self-believer, problem solver, commander, thinker, empathizer
 + My bottom 5 HIGH5 strengths (I rely on you): analyst, chameleon, focus expert, brainstormer, optimist

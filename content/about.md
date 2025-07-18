@@ -6,7 +6,7 @@ comments: false
 
 {{< figure src="/images/free-hugs-2023.jpeg" alt="Profile pic" align=center >}}
 
-In a previous life, I worked on cross-functional projects in energy as an applied ML scientist w/ PETRONAS Research. Currently I build domain-specific generative AI applications as a technical co-founder at V-Cred. 
+In a previous life, I worked on cross-functional projects in energy as an applied ML scientist w/ PETRONAS Research. Currently I build domain-specific generative AI applications as a technical co-founder at ~~V-Cred~~ [Rosary Labs](https://www.rosarylabs.ai/). 
 
 I code in my spare time, either for amusement ([tnwei/vqgan-clip-app](https://github.com/tnwei/vqgan-clip-app), [These Nebulae Do Not Exist](https://tnwei.github.io/thesenebulaedonotexist/)), out of curiosity ([tnwei/waternet](https://github.com/tnwei/waternet), [tnwei/intrinsic-dimension](https://github.com/tnwei/intrinsic-dimension)), or to scratch personal itches ([tnwei/python-rle](https://github.com/tnwei/python-rle), [tnwei/msia-covid-api](https://github.com/tnwei/msia-covid-api), [tnwei/mlflow-docker](https://github.com/tnwei/mlflow-docker)).
 
